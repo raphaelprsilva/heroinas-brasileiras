@@ -5,12 +5,17 @@ const rareOptions = ['normal', 'raro', 'muito raro'];
 
 export default class Select extends Component {
   render() {
-    const { label, name } = this.props;
+    const { label, name, value, onInputChange } = this.props;
 
     return (
       <label htmlFor={ name }>
         {label}
-        <select id={ name } data-testid={ `${name}-input` }>
+        <select
+          id={ name }
+          data-testid={ `${name}-input` }
+          value={ value }
+          onChange={ onInputChange }
+        >
           {rareOptions.map((rareOption) => (
             <option value={ rareOption } key={ rareOption }>
               {rareOption}
@@ -25,4 +30,6 @@ export default class Select extends Component {
 Select.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onInputChange: PropTypes.func.isRequired,
 };
