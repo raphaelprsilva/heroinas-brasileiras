@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Form from './components/Form';
+import Card from './components/Card';
 
 class App extends Component {
   constructor() {
@@ -20,20 +21,32 @@ class App extends Component {
 
   render() {
     return (
-      <Form
-        cardName="Nome da carta"
-        cardDescription="Descrição da carta"
-        cardAttr1="12"
-        cardAttr2="34"
-        cardAttr3="56"
-        cardImage="url-to-image"
-        cardRare="raro"
-        cardTrunfo={ false }
-        hasTrunfo={ false }
-        isSaveButtonDisabled={ false }
-        onInputChange={ this.onInputChange }
-        onSaveButtonClick={ this.onSaveButtonClick }
-      />
+      <>
+        <Form
+          cardName="Nome da carta"
+          cardDescription="Descrição da carta"
+          cardAttr1="12"
+          cardAttr2="34"
+          cardAttr3="56"
+          cardImage="url-to-image"
+          cardRare="raro"
+          cardTrunfo={ false }
+          hasTrunfo={ false }
+          isSaveButtonDisabled={ false }
+          onInputChange={ this.onInputChange }
+          onSaveButtonClick={ this.onSaveButtonClick }
+        />
+        <Card
+          cardName="Nome da carta"
+          cardDescription="Descrição da carta"
+          cardAttr1="12"
+          cardAttr2="34"
+          cardAttr3="56"
+          cardImage="url-to-image"
+          cardRare="raro"
+          cardTrunfo={ false }
+        />
+      </>
     );
   }
 }
