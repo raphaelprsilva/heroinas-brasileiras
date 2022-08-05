@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import capitalize from '../helper/index';
 
 const rareOptions = ['normal', 'raro', 'muito raro'];
 
@@ -11,6 +12,7 @@ export default class Select extends Component {
       <label htmlFor={ name }>
         {label}
         <select
+          name={ `card${capitalize(name)}` }
           id={ name }
           data-testid={ `${name}-input` }
           value={ value }
