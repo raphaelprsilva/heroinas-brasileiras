@@ -13,6 +13,7 @@ const INITIAL_STATE = {
   cardTrunfo: false,
   hasTrunfo: false,
   isSaveButtonDisabled: true,
+  savedCards: [],
   formErrors: {},
   submitted: false,
 };
@@ -37,6 +38,47 @@ class App extends Component {
 
   onSaveButtonClick(event) {
     event.preventDefault();
+    this.addNewCard();
+    this.clearFormData();
+  }
+
+  addNewCard() {
+    const {
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardDescription,
+      cardImage,
+      cardName,
+      cardRare,
+      cardTrunfo,
+      hasTrunfo,
+    } = this.state;
+    const newCard = {
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardDescription,
+      cardImage,
+      cardName,
+      cardRare,
+      cardTrunfo,
+      hasTrunfo,
+    };
+    this.setState((prevState) => ({
+      savedCards: [...prevState.savedCards, newCard],
+    }));
+  }
+
+  clearFormData() {
+    this.setState((prevState) => ({
+      ...INITIAL_STATE,
+      savedCards: prevState.savedCards,
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardRare: 'normal',
+    }));
   }
 
   validateFormFields() {
@@ -57,7 +99,9 @@ class App extends Component {
       return attr < min || attr > max;
     });
     const areFormDataInvalid = cardAttrSum < MIN_VALUE
-      || cardAttrSum > MAX_VALUE || areFieldsEmpty || areAttrInvalid;
+      || cardAttrSum > MAX_VALUE
+      || areFieldsEmpty
+      || areAttrInvalid;
     if (areFormDataInvalid) {
       this.setState({
         isSaveButtonDisabled: true,
