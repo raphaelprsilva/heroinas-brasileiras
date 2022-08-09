@@ -2,39 +2,80 @@ import React, { Component } from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 
+const INITIAL_STATE = {
+  cardName: '',
+  cardDescription: '',
+  cardAttr1: '',
+  cardAttr2: '',
+  cardAttr3: '',
+  cardImage: '',
+  cardRare: '',
+  cardTrunfo: false,
+  hasTrunfo: false,
+  isSaveButtonDisabled: true,
+  formErrors: {},
+  submitted: false,
+};
+
 class App extends Component {
   constructor() {
     super();
 
-    this.state = {
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
-      cardImage: '',
-      cardRare: '',
-      cardTrunfo: false,
-      hasTrunfo: false,
-      isSaveButtonDisabled: false,
-    };
+    this.state = INITIAL_STATE;
 
     this.onInputChange = this.onInputChange.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
-  onInputChange(event) {
-    const { target } = event;
+  onInputChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({
-      [name]: value,
-    });
+    this.updateState(name, value);
   }
 
   onSaveButtonClick(event) {
     event.preventDefault();
+  }
+
+  validateFormFields() {
+    const { cardName, cardDescription, cardImage, cardRare } = this.state;
+    const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
+    const MIN_VALUE = 0;
+    const MAX_VALUE = 210;
+
+    const areFieldsEmpty = [cardName, cardDescription, cardImage, cardRare]
+      .some((cardItem) => !cardItem);
+    const cardAttrSum = [cardAttr1, cardAttr2, cardAttr3].reduce(
+      (acc, curr) => acc + +curr,
+      0,
+    );
+    const areAttrInvalid = [cardAttr1, cardAttr2, cardAttr3].some((attr) => {
+      const min = 0;
+      const max = 90;
+      return attr < min || attr > max;
+    });
+    const areFormDataInvalid = cardAttrSum < MIN_VALUE
+      || cardAttrSum > MAX_VALUE || areFieldsEmpty || areAttrInvalid;
+    if (areFormDataInvalid) {
+      this.setState({
+        isSaveButtonDisabled: true,
+      });
+    } else {
+      this.setState({
+        isSaveButtonDisabled: false,
+      });
+    }
+  }
+
+  updateState(name, value) {
+    this.setState(
+      () => ({
+        [name]: value,
+      }),
+      () => this.validateFormFields(),
+    );
   }
 
   render() {

@@ -1,37 +1,31 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+
 import capitalize from '../helper/index';
 
-const rareOptions = ['', 'normal', 'raro', 'muito raro'];
-
-export default class Select extends Component {
+export default class TextInput extends Component {
   render() {
     const { label, name, value, onInputChange } = this.props;
 
     return (
       <label htmlFor={ name }>
         {label}
-        <select
+        <input
+          type="text"
           name={ `card${capitalize(name)}` }
           id={ name }
           data-testid={ `${name}-input` }
           value={ value }
           onChange={ onInputChange }
-        >
-          {rareOptions.map((rareOption) => (
-            <option value={ rareOption } key={ rareOption }>
-              {rareOption}
-            </option>
-          ))}
-        </select>
+        />
       </label>
     );
   }
 }
 
-Select.propTypes = {
+TextInput.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
   onInputChange: PropTypes.func.isRequired,
 };

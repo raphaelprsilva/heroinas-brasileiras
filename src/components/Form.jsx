@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Input from './Input';
+
+import TextInput from './TextInput';
 import Select from './Select';
 import TextArea from './TextArea';
 import Button from './Button';
+import NumberInput from './NumberInput';
+import CheckBoxInput from './CheckBoxInput';
 
 export default class Form extends Component {
   render() {
@@ -23,9 +26,8 @@ export default class Form extends Component {
     } = this.props;
     return (
       <form>
-        <Input
+        <TextInput
           label="Nome da carta"
-          type="text"
           name="name"
           value={ cardName }
           onInputChange={ onInputChange }
@@ -36,35 +38,39 @@ export default class Form extends Component {
           value={ cardDescription }
           onInputChange={ onInputChange }
         />
-        <Input
+        <NumberInput
           label="Inovação"
-          type="number"
+          minInput="0"
+          maxInput="90"
           name="attr1"
           value={ cardAttr1 }
           onInputChange={ onInputChange }
         />
-        <Input
+        <NumberInput
           label="Carisma"
-          type="number"
+          minInput="0"
+          maxInput="90"
           name="attr2"
           value={ cardAttr2 }
           onInputChange={ onInputChange }
         />
-        <Input
+        <NumberInput
           label="Persistência"
+          minInput="0"
+          maxInput="90"
           type="number"
           name="attr3"
           value={ cardAttr3 }
           onInputChange={ onInputChange }
         />
-        <Input
+        <TextInput
           label="Selecione a imagem"
           type="text"
           name="image"
           value={ cardImage }
           onInputChange={ onInputChange }
         />
-        <Input
+        <CheckBoxInput
           label="Super Trunfo"
           type="checkbox"
           name="trunfo"
