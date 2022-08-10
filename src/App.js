@@ -63,17 +63,19 @@ class App extends Component {
       cardName,
       cardRare,
       cardTrunfo,
-      hasTrunfo,
     };
     this.setState((prevState) => ({
       savedCards: [...prevState.savedCards, newCard],
-    }));
+    }), () => {
+      if (!hasTrunfo && newCard.cardTrunfo) this.setState({ hasTrunfo: true });
+    });
   }
 
   clearFormData() {
     this.setState((prevState) => ({
       ...INITIAL_STATE,
       savedCards: prevState.savedCards,
+      hasTrunfo: prevState.hasTrunfo,
       cardAttr1: '0',
       cardAttr2: '0',
       cardAttr3: '0',

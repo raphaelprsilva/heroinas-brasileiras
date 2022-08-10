@@ -70,13 +70,16 @@ export default class Form extends Component {
           value={ cardImage }
           onInputChange={ onInputChange }
         />
-        <CheckBoxInput
-          label="Super Trunfo"
-          type="checkbox"
-          name="trunfo"
-          value={ cardTrunfo }
-          onInputChange={ onInputChange }
-        />
+        { hasTrunfo ? (<span>Você já tem um Super Trunfo em seu baralho</span>)
+          : (
+            <CheckBoxInput
+              label="Super Trunfo"
+              type="checkbox"
+              name="trunfo"
+              value={ cardTrunfo }
+              onInputChange={ onInputChange }
+            />
+          )}
         <Select
           label="Raridade"
           name="rare"
