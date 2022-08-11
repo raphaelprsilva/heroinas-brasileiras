@@ -16,12 +16,12 @@ const INITIAL_STATE = {
   isSaveButtonDisabled: true,
   savedCards: [],
   formErrors: {},
-  submitted: false,
+  cardNameFilter: '',
 };
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = INITIAL_STATE;
 
@@ -146,6 +146,7 @@ class App extends Component {
       hasTrunfo,
       savedCards,
       isSaveButtonDisabled,
+      cardNameFilter,
     } = this.state;
     return (
       <>
@@ -176,7 +177,12 @@ class App extends Component {
           index={ false }
           onDeleteCard={ false }
         />
-        <Deck savedCards={ savedCards } onDeleteCard={ this.onDeleteCard } />
+        <Deck
+          savedCards={ savedCards }
+          searchCardName={ cardNameFilter }
+          onInputChange={ this.onInputChange }
+          onDeleteCard={ this.onDeleteCard }
+        />
       </>
     );
   }
