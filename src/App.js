@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import Deck from './components/Deck';
 
 const INITIAL_STATE = {
   cardName: '',
@@ -27,6 +28,7 @@ class App extends Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.updateState = this.updateState.bind(this);
+    this.onDeleteCard = this.onDeleteCard.bind(this);
   }
 
   onInputChange({ target }) {
@@ -40,6 +42,13 @@ class App extends Component {
     event.preventDefault();
     this.addNewCard();
     this.clearFormData();
+  }
+
+  onDeleteCard(index, cardTrunfo) {
+    const { savedCards } = this.state;
+    savedCards.splice(index, 1);
+    if (cardTrunfo) this.setState({ hasTrunfo: false });
+    this.setState({ savedCards });
   }
 
   addNewCard() {
@@ -135,6 +144,7 @@ class App extends Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
+      savedCards,
       isSaveButtonDisabled,
     } = this.state;
     return (
@@ -162,7 +172,11 @@ class App extends Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
+          deleteButton={ false }
+          index={ false }
+          onDeleteCard={ false }
         />
+        <Deck savedCards={ savedCards } onDeleteCard={ this.onDeleteCard } />
       </>
     );
   }
