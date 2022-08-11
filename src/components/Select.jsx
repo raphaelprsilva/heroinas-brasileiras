@@ -4,12 +4,13 @@ import capitalize from '../helper/index';
 
 export default class Select extends Component {
   render() {
-    const { label, name, value, onInputChange, options } = this.props;
+    const { label, name, value, onInputChange, disabled, options } = this.props;
 
     return (
       <label htmlFor={ name }>
         {label}
         <select
+          disabled={ disabled }
           name={ `card${capitalize(name)}` }
           id={ name }
           data-testid={ `${name}-input` }
@@ -27,7 +28,12 @@ export default class Select extends Component {
   }
 }
 
+Select.defaultProps = {
+  disabled: false,
+};
+
 Select.propTypes = {
+  disabled: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,

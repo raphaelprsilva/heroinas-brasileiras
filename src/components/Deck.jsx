@@ -11,6 +11,7 @@ class Deck extends Component {
       searchCardName,
       searchCardRare,
       onInputChange,
+      searchCardTrunfo,
     } = this.props;
     return (
       <>
@@ -18,6 +19,7 @@ class Deck extends Component {
         <Search
           searchCardName={ searchCardName }
           searchCardRare={ searchCardRare }
+          searchCardTrunfo={ searchCardTrunfo }
           onInputChange={ onInputChange }
         />
         <div>
@@ -39,6 +41,9 @@ class Deck extends Component {
                   deleteButton
                 />))
               .filter((cardItem) => {
+                if (searchCardTrunfo) {
+                  return cardItem.props.cardTrunfo;
+                }
                 if (searchCardRare === 'todas') {
                   return cardItem.props.cardName.includes(searchCardName);
                 }
@@ -55,6 +60,7 @@ class Deck extends Component {
 Deck.propTypes = {
   onDeleteCard: PropTypes.func.isRequired,
   searchCardName: PropTypes.string.isRequired,
+  searchCardTrunfo: PropTypes.string.isRequired,
   onInputChange: PropTypes.func.isRequired,
   searchCardRare: PropTypes.string.isRequired,
   savedCards: PropTypes.arrayOf(PropTypes.shape({
