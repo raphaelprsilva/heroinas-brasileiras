@@ -5,11 +5,21 @@ import Search from './Search';
 
 class Deck extends Component {
   render() {
-    const { savedCards, onDeleteCard, searchCardName, onInputChange } = this.props;
+    const {
+      savedCards,
+      onDeleteCard,
+      searchCardName,
+      searchCardRare,
+      onInputChange,
+    } = this.props;
     return (
       <>
         <h2>Baralho</h2>
-        <Search searchCardName={ searchCardName } onInputChange={ onInputChange } />
+        <Search
+          searchCardName={ searchCardName }
+          searchCardRare={ searchCardRare }
+          onInputChange={ onInputChange }
+        />
         <div>
           {
             savedCards
@@ -29,10 +39,11 @@ class Deck extends Component {
                   deleteButton
                 />))
               .filter((cardItem) => {
-                if (searchCardName) {
+                if (searchCardRare === 'todas') {
                   return cardItem.props.cardName.includes(searchCardName);
                 }
-                return savedCards;
+                return cardItem.props.cardName.includes(searchCardName)
+                  && cardItem.props.cardRare === searchCardRare;
               })
           }
         </div>
@@ -45,6 +56,7 @@ Deck.propTypes = {
   onDeleteCard: PropTypes.func.isRequired,
   searchCardName: PropTypes.string.isRequired,
   onInputChange: PropTypes.func.isRequired,
+  searchCardRare: PropTypes.string.isRequired,
   savedCards: PropTypes.arrayOf(PropTypes.shape({
     cardAttr1: PropTypes.string.isRequired,
     cardAttr2: PropTypes.string.isRequired,

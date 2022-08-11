@@ -17,6 +17,7 @@ const INITIAL_STATE = {
   savedCards: [],
   formErrors: {},
   cardNameFilter: '',
+  cardRareFilter: 'todas',
 };
 
 class App extends Component {
@@ -146,6 +147,7 @@ class App extends Component {
       hasTrunfo,
       savedCards,
       isSaveButtonDisabled,
+      cardRareFilter,
       cardNameFilter,
     } = this.state;
     return (
@@ -180,6 +182,7 @@ class App extends Component {
         <Deck
           savedCards={ savedCards }
           searchCardName={ cardNameFilter }
+          searchCardRare={ cardRareFilter }
           onInputChange={ this.onInputChange }
           onDeleteCard={ this.onDeleteCard }
         />

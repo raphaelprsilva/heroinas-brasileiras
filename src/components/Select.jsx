@@ -2,11 +2,9 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import capitalize from '../helper/index';
 
-const rareOptions = ['', 'normal', 'raro', 'muito raro'];
-
 export default class Select extends Component {
   render() {
-    const { label, name, value, onInputChange } = this.props;
+    const { label, name, value, onInputChange, options } = this.props;
 
     return (
       <label htmlFor={ name }>
@@ -18,9 +16,9 @@ export default class Select extends Component {
           value={ value }
           onChange={ onInputChange }
         >
-          {rareOptions.map((rareOption) => (
-            <option value={ rareOption } key={ rareOption }>
-              {rareOption}
+          {options.map((option) => (
+            <option value={ option } key={ option }>
+              {option}
             </option>
           ))}
         </select>
@@ -30,6 +28,7 @@ export default class Select extends Component {
 }
 
 Select.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,

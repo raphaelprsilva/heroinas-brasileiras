@@ -8,6 +8,8 @@ import Button from './Button';
 import NumberInput from './NumberInput';
 import CheckBoxInput from './CheckBoxInput';
 
+const rareOptions = ['', 'normal', 'raro', 'muito raro'];
+
 export default class Form extends Component {
   render() {
     const {
@@ -81,6 +83,7 @@ export default class Form extends Component {
             />
           )}
         <Select
+          options={ rareOptions }
           label="Raridade"
           name="rare"
           value={ cardRare }
