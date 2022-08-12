@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import capitalize from '../helper/index';
+import capitalize from '../../helper/index';
+
+import * as S from './styled';
 
 export default class NumberInput extends Component {
   render() {
     const { label, name, minInput, maxInput, value, onInputChange } = this.props;
 
     return (
-      <label htmlFor={ name }>
-        {label}
+      <S.InputWrapper>
+        <label htmlFor={ name }>{label}</label>
         <input
           type="number"
           min={ minInput }
@@ -20,7 +22,7 @@ export default class NumberInput extends Component {
           value={ value }
           onChange={ onInputChange }
         />
-      </label>
+      </S.InputWrapper>
     );
   }
 }
