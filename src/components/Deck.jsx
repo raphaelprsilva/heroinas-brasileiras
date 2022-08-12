@@ -60,7 +60,7 @@ class Deck extends Component {
 Deck.propTypes = {
   onDeleteCard: PropTypes.func.isRequired,
   searchCardName: PropTypes.string.isRequired,
-  searchCardTrunfo: PropTypes.string.isRequired,
+  searchCardTrunfo: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   searchCardRare: PropTypes.string.isRequired,
   savedCards: PropTypes.arrayOf(PropTypes.shape({

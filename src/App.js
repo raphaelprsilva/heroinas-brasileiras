@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 import Deck from './components/Deck';
+import Header from './components/Header';
 
 const INITIAL_STATE = {
   cardName: '',
@@ -153,7 +154,8 @@ class App extends Component {
       cardSuperTrunfoFilter,
     } = this.state;
     return (
-      <>
+      <div>
+        <Header />
         <Form
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -189,7 +191,7 @@ class App extends Component {
           onInputChange={ this.onInputChange }
           onDeleteCard={ this.onDeleteCard }
         />
-      </>
+      </div>
     );
   }
 }
