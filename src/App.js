@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+
 import Form from './components/Form';
 import Card from './components/Card';
 import Deck from './components/Deck';
 import Header from './components/Header';
+
+import * as S from './styled';
 
 const INITIAL_STATE = {
   cardName: '',
@@ -153,36 +156,39 @@ class App extends Component {
       cardNameFilter,
       cardSuperTrunfoFilter,
     } = this.state;
+
     return (
-      <div>
+      <S.AppWrapper>
         <Header />
-        <Form
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
-          onInputChange={ this.onInputChange }
-          onSaveButtonClick={ this.onSaveButtonClick }
-        />
-        <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          deleteButton={ false }
-          index={ false }
-          onDeleteCard={ false }
-        />
+        <S.FormCardPreviewWrapper>
+          <Form
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+            hasTrunfo={ hasTrunfo }
+            isSaveButtonDisabled={ isSaveButtonDisabled }
+            onInputChange={ this.onInputChange }
+            onSaveButtonClick={ this.onSaveButtonClick }
+          />
+          <Card
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+            deleteButton={ false }
+            index={ false }
+            onDeleteCard={ false }
+          />
+        </S.FormCardPreviewWrapper>
         <Deck
           savedCards={ savedCards }
           searchCardName={ cardNameFilter }
@@ -191,7 +197,7 @@ class App extends Component {
           onInputChange={ this.onInputChange }
           onDeleteCard={ this.onDeleteCard }
         />
-      </div>
+      </S.AppWrapper>
     );
   }
 }
