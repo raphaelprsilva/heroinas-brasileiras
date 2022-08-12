@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import capitalize from '../helper/index';
+import capitalize from '../../helper/index';
+
+import * as S from './styled';
 
 export default class TextArea extends Component {
   render() {
     const { label, name, value, onInputChange } = this.props;
 
     return (
-      <label htmlFor={ name }>
-        {label}
+      <S.TextAreaWrapper>
+        <label htmlFor={ name }>{label}</label>
         <textarea
           name={ `card${capitalize(name)}` }
           id={ name }
@@ -17,7 +19,7 @@ export default class TextArea extends Component {
           value={ value }
           onChange={ onInputChange }
         />
-      </label>
+      </S.TextAreaWrapper>
     );
   }
 }
