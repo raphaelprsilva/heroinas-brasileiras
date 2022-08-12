@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import TextInput from './TextInput';
-import Select from './Select';
-import TextArea from './TextArea';
-import Button from './Button';
-import NumberInput from './NumberInput';
-import CheckBoxInput from './CheckBoxInput';
+import * as S from './styled';
+
+import TextInput from '../TextInput';
+import Select from '../Select';
+import TextArea from '../TextArea';
+import Button from '../Button';
+import NumberInput from '../NumberInput';
+import CheckBoxInput from '../CheckBoxInput';
 
 const rareOptions = ['', 'normal', 'raro', 'muito raro'];
 
@@ -27,7 +29,7 @@ export default class Form extends Component {
       onSaveButtonClick,
     } = this.props;
     return (
-      <form>
+      <S.FormWrapper>
         <TextInput
           label="Nome da carta"
           name="name"
@@ -72,16 +74,6 @@ export default class Form extends Component {
           value={ cardImage }
           onInputChange={ onInputChange }
         />
-        { hasTrunfo ? (<span>Você já tem um Super Trunfo em seu baralho</span>)
-          : (
-            <CheckBoxInput
-              label="Super Trunfo"
-              type="checkbox"
-              name="trunfo"
-              value={ cardTrunfo }
-              onInputChange={ onInputChange }
-            />
-          )}
         <Select
           options={ rareOptions }
           label="Raridade"
@@ -89,13 +81,23 @@ export default class Form extends Component {
           value={ cardRare }
           onInputChange={ onInputChange }
         />
+        { hasTrunfo ? (<span>Você já tem um Super Trunfo em seu baralho</span>)
+          : (
+            <CheckBoxInput
+              label="Carta Super Trunfo"
+              type="checkbox"
+              name="trunfo"
+              value={ cardTrunfo }
+              onInputChange={ onInputChange }
+            />
+          )}
         <Button
           label="Salvar"
           name="save"
           value={ isSaveButtonDisabled }
           onSaveButtonClick={ onSaveButtonClick }
         />
-      </form>
+      </S.FormWrapper>
     );
   }
 }
