@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import capitalize from '../helper/index';
+
+import capitalize from '../../helper/index';
+
+import * as S from './styled';
 
 export default class Select extends Component {
   render() {
     const { label, name, value, onInputChange, disabled, options } = this.props;
 
     return (
-      <label htmlFor={ name }>
-        {label}
+      <S.SelectWrapper>
+        <label htmlFor={ name }>{label}</label>
         <select
           disabled={ disabled }
           name={ `card${capitalize(name)}` }
@@ -23,7 +26,7 @@ export default class Select extends Component {
             </option>
           ))}
         </select>
-      </label>
+      </S.SelectWrapper>
     );
   }
 }
