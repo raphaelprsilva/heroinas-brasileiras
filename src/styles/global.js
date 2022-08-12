@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import Lato from '../fonts/Lato-Regular.ttf';
+
 const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -52,11 +54,19 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: #FFFFFF;
+    background: #fafafa;
     line-height: 1;
     font-size: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Lato';
   }
+
+  @font-face {
+    font-family: 'Lato';
+    src: url(${Lato}) format('ttf');
+    font-weight: 300;
+    font-style: normal;
+  }
+
   img {
     display: block;
     width: 100%;
