@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import capitalize from '../helper/index';
+import capitalize from '../../helper';
+
+import * as S from './styled';
 
 export default class TextInput extends Component {
   render() {
     const { label, name, value, onInputChange, disabled } = this.props;
 
     return (
-      <label htmlFor={ name }>
-        {label}
+      <S.InputWrapper>
+        <label htmlFor={ name }>{ label }</label>
         <input
           disabled={ disabled }
           type="text"
@@ -18,8 +20,9 @@ export default class TextInput extends Component {
           data-testid={ `${name}-input` }
           value={ value }
           onChange={ onInputChange }
+          autoComplete="off"
         />
-      </label>
+      </S.InputWrapper>
     );
   }
 }
