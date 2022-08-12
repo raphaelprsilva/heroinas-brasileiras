@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
+import * as S from './styled';
+
 export default class Button extends Component {
   render() {
     const { name, label, value, onSaveButtonClick } = this.props;
     return (
-      <button
+      <S.ButtonWrapper
         type="submit"
         name={ name }
         data-testid={ `${name}-button` }
@@ -13,7 +15,7 @@ export default class Button extends Component {
         onClick={ onSaveButtonClick }
       >
         {label}
-      </button>
+      </S.ButtonWrapper>
     );
   }
 }
