@@ -23,6 +23,7 @@ const INITIAL_STATE = {
   cardNameFilter: '',
   cardRareFilter: 'todas',
   cardSuperTrunfoFilter: false,
+  submitted: false,
 };
 
 class App extends Component {
@@ -113,7 +114,7 @@ class App extends Component {
     const areAttrInvalid = [cardAttr1, cardAttr2, cardAttr3].some((attr) => {
       const min = 0;
       const max = 90;
-      return attr < min || attr > max;
+      return !attr || Number(attr) < min || Number(attr) > max;
     });
     const areFormDataInvalid = cardAttrSum < MIN_VALUE
       || cardAttrSum > MAX_VALUE
