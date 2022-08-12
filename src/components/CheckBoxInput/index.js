@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import capitalize from '../helper/index';
+import capitalize from '../../helper/index';
+
+import * as S from './styled';
 
 export default class CheckBoxInput extends Component {
   render() {
     const { label, name, value, onInputChange } = this.props;
 
     return (
-      <label htmlFor={ name }>
-        {label}
+      <S.InputWrapper>
         <input
           type="checkbox"
           name={ `card${capitalize(name)}` }
@@ -18,7 +19,8 @@ export default class CheckBoxInput extends Component {
           checked={ value }
           onChange={ onInputChange }
         />
-      </label>
+        <label htmlFor={ name }>{label}</label>
+      </S.InputWrapper>
     );
   }
 }
