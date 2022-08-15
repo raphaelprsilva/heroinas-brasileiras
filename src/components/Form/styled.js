@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 
 export const FormWrapper = styled.form`
+  max-height: 565px;
   display: flex;
   width: 350px;
   flex-direction: column;
