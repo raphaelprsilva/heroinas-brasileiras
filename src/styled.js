@@ -8,5 +8,5 @@ export const AppWrapper = styled.div`
 export const FormCardPreviewWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 `;

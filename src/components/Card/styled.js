@@ -12,7 +12,6 @@ export const CardWrapper = styled.div`
   border: 1px solid transparent;
   border-radius: 5px;
   background: #fef2ec;
-  /* background: linear-gradient(180deg, #fa814a 0%, #fcc0a4 40%, #fef2ec 110%); */
   transition: all 0.2s ease;
   box-shadow: 0 5px 10px rgb(0 0 0 / 12%);
 
