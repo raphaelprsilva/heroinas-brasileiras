@@ -2,9 +2,10 @@
 import styled from 'styled-components';
 
 export const FormWrapper = styled.form`
-  max-height: 565px;
+  max-height: 600px;
   display: flex;
   width: 350px;
+  min-height: 565px;
   flex-direction: column;
   padding: 1.5rem 1rem;
   margin: 1.5rem;
