@@ -132,3 +132,7 @@ export const SuperTrunfoWrapper = styled.div`
     width: 25px;
   }
 `;
+
+export const SuperTrunfoDeleteButton = styled.div`
+  display: flex;
+`;

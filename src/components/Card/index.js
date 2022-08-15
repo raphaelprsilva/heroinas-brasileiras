@@ -54,7 +54,7 @@ export default class Card extends Component {
               <div>{cardRare}</div>
             </li>
           </S.List>
-          <div>
+          <S.SuperTrunfoDeleteButton>
             {cardTrunfo && (
               <S.SuperTrunfoWrapper data-testid="trunfo-card">
                 <img
@@ -62,20 +62,20 @@ export default class Card extends Component {
                   alt="Ícone de uma mão segurando o símbolo feminino"
                 />
                 <span>Super Trunfo</span>
-                {deleteButton ? (
-                  <Button
-                    index={ index }
-                    label="Excluir"
-                    name="delete"
-                    onSaveButtonClick={ () => onDeleteCard(index, cardTrunfo) }
-                    value={ false }
-                  />
-                ) : (
-                  ''
-                )}
               </S.SuperTrunfoWrapper>
             )}
-          </div>
+            {deleteButton ? (
+              <Button
+                index={ index }
+                label="Excluir"
+                name="delete"
+                onSaveButtonClick={ () => onDeleteCard(index, cardTrunfo) }
+                value={ false }
+              />
+            ) : (
+              ''
+            )}
+          </S.SuperTrunfoDeleteButton>
         </S.Border>
       </S.CardWrapper>
     );
