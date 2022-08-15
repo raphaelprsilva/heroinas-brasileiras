@@ -5,7 +5,15 @@ export const AppWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const MainWrapper = styled.div`
+export const MainWrapper = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const FormCardWrapper = styled.div`
+  width: 100%;
   padding-top: 96px;
   display: flex;
   flex-direction: column;
