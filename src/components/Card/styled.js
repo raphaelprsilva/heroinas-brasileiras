@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export const CardWrapper = styled.div`
-  max-height: 565px;
+  max-height: 600px;
   display: flex;
   width: 350px;
   min-height: 565px;
