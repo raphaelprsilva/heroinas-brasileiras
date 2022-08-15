@@ -6,6 +6,7 @@ export const AppWrapper = styled.div`
 `;
 
 export const MainWrapper = styled.div`
+  padding-top: 96px;
   display: flex;
   flex-direction: column;
   align-items: center;
