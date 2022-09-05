@@ -33,7 +33,7 @@ export const Border = styled.div`
 export const CardTitle = styled.h3`
   min-height: 2.5rem;
   margin-top: 0.25rem;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   padding: 0.5rem 0.25rem;
   font-weight: 600;
 `;
