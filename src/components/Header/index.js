@@ -11,6 +11,7 @@ class Header extends Component {
         <S.LinksWrapper>
           <Link to="/">Home</Link>
           <Link to="/play">Jogar</Link>
+          <Link to="/deck">Ver Cartas</Link>
         </S.LinksWrapper>
       </S.Wrapper>
     );

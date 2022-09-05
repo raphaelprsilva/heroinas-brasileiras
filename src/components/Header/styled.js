@@ -17,7 +17,7 @@ export const Wrapper = styled.header`
 `;
 
 export const LinksWrapper = styled.div`
-  width: 200px;
+  width: 300px;
 
   a {
     font-size: 1rem;
