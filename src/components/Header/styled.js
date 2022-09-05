@@ -8,14 +8,11 @@ export const Wrapper = styled.header`
   position: fixed;
   z-index: 999px;
   display: flex;
-  height: 6rem;
+  height: 3.5rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #2a2a2a;
-  background-color: #f95f18;
-
-  img {
-    width: 6rem;
-  }
+  color: #fafafa;
+  background-color: #2B44FF;
+  font-size: 1.25rem;
 `;
