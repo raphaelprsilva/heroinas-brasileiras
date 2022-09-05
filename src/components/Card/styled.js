@@ -11,7 +11,7 @@ export const CardWrapper = styled.div`
   margin: 1.5rem 0.5rem;
   border: 1px solid transparent;
   border-radius: 5px;
-  background: #fef2ec;
+  background: #D8ECEF;
   transition: all 0.2s ease;
   box-shadow: 0 5px 10px rgb(0 0 0 / 12%);
 
@@ -106,7 +106,7 @@ export const List = styled.ul`
       padding: 0.5rem 0.25rem;
       margin: 0.25rem;
       margin-left: 0;
-      background-color: #fa814a;
+      background-color: #008CFF;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
       padding-right: 0.75rem;
