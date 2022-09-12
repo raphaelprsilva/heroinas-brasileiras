@@ -11,16 +11,13 @@ class MiniCard extends Component {
   render() {
     const {
       cardName,
-      cardDescription,
       cardAttr1,
       cardAttr2,
       cardAttr3,
       cardImage,
-      cardRare,
       cardTrunfo,
       deleteButton = false,
       onDeleteCard,
-      handleClick,
       index,
     } = this.props;
     return (
@@ -84,10 +81,8 @@ MiniCard.propTypes = {
   onDeleteCard: PropTypes.oneOfType([PropTypes.func, PropTypes.bool])
     .isRequired,
   index: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]).isRequired,
-  cardDescription: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardName: PropTypes.string.isRequired,
-  cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
 };
 
