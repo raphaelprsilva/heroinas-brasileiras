@@ -1,0 +1,28 @@
+.cards_modal {
+  background-color: #fafafa;
+  border-radius: 5px;
+  bottom: 203px;
+  left: 2rem;
+  position: absolute;
+  right: 2rem;
+  top: 20rem;
+}
+
+.cards-battle-modal {
+  background-color: #fafafa;
+  border-radius: 5px;
+  bottom: 150px;
+  left: 2rem;
+  position: absolute;
+  right: 2rem;
+  top: 20rem;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
