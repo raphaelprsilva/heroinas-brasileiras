@@ -151,13 +151,7 @@ class Game extends Component {
     };
   }
 
-  setUserLose(
-    prevState,
-    userDeck,
-    machineDeck,
-    choosedCard,
-    randomMachineCard,
-  ) {
+  setUserLose(prevState, userDeck, machineDeck, choosedCard, randomMachineCard) {
     return {
       showCardsBattle: true,
       selectedOption: '',
@@ -175,8 +169,7 @@ class Game extends Component {
   setRandomDeck(deck) {
     const RANDOM_FACTOR = 0.5;
     const MAX_INDEX = 6;
-    return deck
-      .sort(() => Math.random() - RANDOM_FACTOR)
+    return deck.sort(() => Math.random() - RANDOM_FACTOR)
       .filter((item, index) => index < MAX_INDEX);
   }
 
