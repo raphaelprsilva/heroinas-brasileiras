@@ -86,7 +86,7 @@ npm start
 
 ## 🔗 Link para acessar o projeto
 
-<a href="https://www.heroinas-brasileiras.elraphael.com.br" target="_blank" rel="noopener">Jogo Triunfo - Heroínas Brasileiras</a>
+<a href="http://www.heroinas-brasileiras.elraphael.com.br/" target="_blank" rel="noopener">Jogo Triunfo - Heroínas Brasileiras</a>
 
 ---
 
